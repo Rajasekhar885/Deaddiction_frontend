@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .table-container {
+    /* max-height: calc(100vh - 155px);  */
+    height:calc(100vh - 193px);
+    overflow: auto;
+}

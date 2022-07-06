@@ -1,0 +1,14 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.toolbar{
+    background-color: rgb(54, 54, 176);
+    color: white;
+    margin-right: 200px;
+
+
+}
+.tabs-container{
+    margin-left: 100px;
+    flex: 1 1 auto;
+}
