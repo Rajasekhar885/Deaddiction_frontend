@@ -1,0 +1,73 @@
+<app-home-component></app-home-component><br>
+<form class="patient-form" #patientRegisterForm="ngForm" (ngSubmit)="onSubmit(patientRegisterForm.value)">
+    <br>
+    <br><br>
+    
+    <!-- <input type="text"  name="patientName" ngModel placeholder="Name"><br><br>
+    <input type="text"  name="uniqueId" ngModel placeholder="ID"><br><br>
+    <input type="text"  name="age" ngModel placeholder="Age"><br><br>
+    <input type="text"  name="gender" ngModel placeholder="Gender"><br><br>
+    <input type="text"  name="mail" ngModel placeholder="Mail"><br><br>
+    <input type="text"  name="contactNumber" ngModel placeholder="Contact Number"><br><br> -->
+    <mat-form-field appearance="outline">
+        <mat-label>Name of the Patient</mat-label>
+        <input matInput placeholder="Placeholder"  name="patientName" ngModel>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="Placeholder"  name="age" ngModel>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select  name="gender" ngModel>
+          <mat-option value="MALE">Male</mat-option>
+          <mat-option value="FEMALE">Female</mat-option>
+          <mat-option value="OTHER">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Placeholder"  name="mail" ngModel>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Contact number</mat-label >
+        <input matInput placeholder="Placeholder"  name="contactNumber" ngModel>
+      </mat-form-field>
+    <br><br>
+   <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- "uniqueId": "DAD000001",
+"age": 22,
+"gender": "MALE",
+"mail": "Francis007@gmail.com",
+"contactNumber": "9998887776",
+"addictionType": "GAMBLING",
+"checkIn": null,
+"checkOut": null,
+"nextFollowup": null,
+"medication": null,
+"sessionDescription": "Early stages of addiction",
+"followupInfo": null -->

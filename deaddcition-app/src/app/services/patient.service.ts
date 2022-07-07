@@ -7,8 +7,9 @@ import { Patient } from '../models/patient';
   providedIn: 'root'
 })
 export class PatientService {
+  info:any
 
-  private baseurl:string="http://localhost:8080/patient-api/patients"
+  private baseurl:string="http://localhost:8080/patient-api/patient"
   constructor(private _http:HttpClient) { }
 
   // getAllPatients=():Observable<Patient[]>=>{
@@ -18,6 +19,19 @@ export class PatientService {
   // }
 
   getAllPatients(){
-    return this._http.get<Patient[]>(this.baseurl);
+    return this._http.get<Patient[]>(this.baseurl+'s');
   }
+
+  getPatientById(patientId:any){
+    return this._http.get<Patient>(`${this.baseurl}/id/${patientId}`)
+  }
+
+  sendData(requestinfo: any) {
+    this.info=requestinfo
+    }
+    sendDatum():Observable<any>{
+      return new Observable(observer =>{
+        observer.next(this.info)
+    })
+}
 }

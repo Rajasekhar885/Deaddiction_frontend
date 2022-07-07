@@ -1,17 +1,27 @@
 table {
     width: 100%;
     table-layout: fixed;
+  margin-top: 5rem;
+
   }
   
   th, td {
     overflow: hidden;
-    width: 100px;
+    width: 130px;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .table-container {
     /* max-height: calc(100vh - 155px);  */
-    height:calc(100vh - 193px);
+    height:calc(100vh - 150px);
     overflow: auto;
+}
+.filter-position{
+  margin-left: 1rem;
+  position: sticky;
+  /* position: -webkit-sticky; For macOS/iOS Safari */
+  position: fixed;
+  top: 100;
+  z-index: 100;
 }

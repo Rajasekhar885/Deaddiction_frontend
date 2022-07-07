@@ -8,16 +8,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MaterialModule } from './material/material.module';
 import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponentComponent,
-    PatientDashboardComponent
+    PatientDashboardComponent,
+    AddPatientComponent,
+    PatientDetailsComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MaterialModule,

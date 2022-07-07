@@ -1,0 +1,56 @@
+<app-home-component></app-home-component>
+<br>
+<br>
+<br>
+<br>
+
+<p>Name of the Patient: {{patient?.patientName}}</p>
+<form class="form-container" #patientReportForm="ngForm" (ngSubmit)="onSubmit(patientReportForm.value)">
+    <mat-form-field appearance="outline">
+        <mat-label>Name of the Patient</mat-label>
+        <input matInput placeholder="Placeholder" name="patientName"  [(ngModel)]="patient.patientName"  ngModel>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="Placeholder" [(ngModel)]="patient.age"  name="age" ngModel>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select  name="gender" ngModel [(ngModel)]="patient.gender">
+          <mat-option value="MALE">Male</mat-option>
+          <mat-option value="FEMALE">Female</mat-option>
+          <mat-option value="OTHER">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Placeholder"  name="mail" [(ngModel)]="patient.mail" ngModel>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contact number</mat-label >
+        <input matInput placeholder="Placeholder"  name="contactNumber" [(ngModel)]="patient.contactNumber" ngModel>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Addcition type</mat-label>
+        <mat-select name="addictionType" ngModel [(ngModel)]="patient.addictionType">
+            <mat-option value="ALCOHOL">Alcohol</mat-option>
+            <mat-option value="DRUGS">Drugs</mat-option>
+            <mat-option value="GAMBLING">Gambling</mat-option>
+            <mat-option value="VIDEOGAMES">Video Games</mat-option>
+            <mat-option value="SHOPPING">Shopping</mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Medication</mat-label >
+        <textarea matInput placeholder="Placeholder"  name="medication" [(ngModel)]="patient.medication" ngModel></textarea>
+      </mat-form-field> 
+      <mat-form-field appearance="outline">
+        <mat-label>Session desciption</mat-label >
+        <textarea matInput placeholder="Placeholder"  name="sessionDescription" [(ngModel)]="patient.sessionDescription" ngModel></textarea>
+      </mat-form-field>
+      <br>
+      <button type="submit" color="primary" mat-raised-button >Submit</button>
+</form>

@@ -1,5 +1,5 @@
 <mat-toolbar class="toolbar">
-    <a mat-button><span  >Deaddiction system </span></a>
+    <a mat-button routerLink=""><span  >Deaddiction system </span></a>
     
     <span matripple="" class="mat-ripple mat-button-ripple"></span>
     <div class="tabs-container">
@@ -12,16 +12,22 @@
             <span class="mat-button-wrapper">Follow Up dashboard </span>
             <span class="mat-button-focus-overlay"></span>
         </a>
-        <a mat-button class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base ng-star-inserted docs-navbar-header-item-selected">
-            <span class="mat-button-wrapper">Add Patient</span>
+        <a mat-button class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base ng-star-inserted docs-navbar-header-item-selected"
+        routerLink="/register-patient" >
+            <span class="mat-button-wrapper">Register Patient</span>
             <span class="mat-button-focus-overlay"></span>
             <mat-icon>add_box</mat-icon>
         </a>
     </div>
     <span class="example-spacer"></span>
 
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon>account_circle</mat-icon>
+      <mat-icon >arrow_drop_down</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>My Profile</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
   </mat-toolbar>
   <!-- <app-patient-dashboard></app-patient-dashboard> -->
