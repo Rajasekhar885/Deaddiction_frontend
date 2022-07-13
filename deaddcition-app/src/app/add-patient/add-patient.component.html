@@ -1,5 +1,5 @@
 <app-home-component></app-home-component><br>
-<form class="patient-form" #patientRegisterForm="ngForm" (ngSubmit)="onSubmit(patientRegisterForm.value)">
+<form class="patient-form" name="patientRegisterForm" #patientRegisterForm="ngForm" (ngSubmit)="onSubmit(patientRegisterForm.value)">
     <br>
     <br><br>
     
@@ -34,6 +34,16 @@
       <mat-form-field appearance="outline">
         <mat-label>Contact number</mat-label >
         <input matInput placeholder="Placeholder"  name="contactNumber" ngModel>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Addcition type</mat-label>
+        <mat-select name="addictiontype" ngModel >
+            <mat-option value="ALCOHOL">Alcohol</mat-option>
+            <mat-option value="DRUGS">Drugs</mat-option>
+            <mat-option value="GAMBLING">Gambling</mat-option>
+            <mat-option value="VIDEOGAMES">Video Games</mat-option>
+            <mat-option value="SHOPPING">Shopping</mat-option>
+        </mat-select>
       </mat-form-field>
     <br><br>
    <button mat-raised-button color="primary" type="submit">Submit</button>

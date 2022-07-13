@@ -1,0 +1,86 @@
+<app-home-component></app-home-component>
+<br>
+<br>
+<br>
+<!-- <p>followup-dashboard works!</p> -->
+<mat-toolbar>
+    <a mat-button class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base ng-star-inserted docs-navbar-header-item-selected"
+        (click)="getTodayFollowups()" >
+            <span class="mat-button-wrapper">Today</span>
+            <span class="mat-button-focus-overlay"></span>
+        </a>
+        <a mat-button class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base ng-star-inserted docs-navbar-header-item-selected"
+        (click)="getTomorrowFollowups()" >
+            <span class="mat-button-wrapper">Tomorrow</span>
+            <span class="mat-button-focus-overlay"></span>
+        </a>
+ </mat-toolbar>
+ <table mat-table
+ [dataSource]="dataSource"
+ cdkDropList
+ cdkDropListOrientation="horizontal"
+ (cdkDropListDropped)="drop($event)"
+ matSort>
+
+<ng-container matColumnDef="patientId">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> ID </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.patientId}}> {{element.patientId}} </td>
+</ng-container>
+
+<ng-container matColumnDef="patientName">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Name </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.patientName}}> {{element.patientName}} </td>
+</ng-container>
+
+<ng-container matColumnDef="uniqueId">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header>ID </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.uniqueId}}> {{element.uniqueId}} </td>
+</ng-container>
+
+<ng-container matColumnDef="age">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Age </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.age}}> {{element.age}} </td>
+</ng-container> 
+<ng-container matColumnDef="gender">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Gender </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.gender}}> {{element.gender| titlecase}} </td>
+</ng-container> 
+<ng-container matColumnDef="mail">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Mail </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.mail}}> {{element.mail}} </td>
+</ng-container> 
+<ng-container matColumnDef="contactNumber">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Contact Number </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.contactNumber}}> {{element.contactNumber}} </td>
+</ng-container> 
+<ng-container matColumnDef="addictiontype">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Addiction type </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.addictiontype}}> {{element.addictiontype}} </td>
+</ng-container> 
+<ng-container matColumnDef="checkIn">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Checkin time </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.checkIn}}> {{element.checkIn}} </td>
+</ng-container> 
+<ng-container matColumnDef="checkOut">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Checkout time </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.checkOut}}> {{element.checkOut}} </td>
+</ng-container> 
+<ng-container matColumnDef="medication">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Medication </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.medication}}> {{element.medication}} </td>
+</ng-container> 
+ <ng-container matColumnDef="sessionDescription" >
+     <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Session desciption </th>
+     <td mat-cell *matCellDef="let element"  matTooltip={{element.sessionDescription}}> {{element.sessionDescription}} </td>
+ </ng-container> 
+<ng-container matColumnDef="nextFollowup">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Next follow up </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.nextFollowup}}> {{element.nextFollowup}} </td>
+</ng-container>
+<ng-container matColumnDef="followupInfo">
+ <th mat-header-cell cdkDrag *matHeaderCellDef mat-sort-header> Follow up info </th>
+ <td mat-cell *matCellDef="let element" matTooltip={{element.followupInfo}}> {{element.followupInfo}} </td>
+</ng-container>  
+<tr mat-header-row *matHeaderRowDef="columns"></tr>
+<tr mat-row  *matRowDef="let row; columns: columns;"></tr>
+</table>

@@ -8,7 +8,8 @@
             <span class="mat-button-wrapper">Patient dashboard </span>
             <span class="mat-button-focus-overlay"></span>
         </a>
-        <a mat-button class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base ng-star-inserted docs-navbar-header-item-selected">
+        <a mat-button class="mat-focus-indicator docs-navbar-hide-small docs-button mat-button mat-button-base ng-star-inserted docs-navbar-header-item-selected"
+        routerLink="/followup-dashboard">
             <span class="mat-button-wrapper">Follow Up dashboard </span>
             <span class="mat-button-focus-overlay"></span>
         </a>
@@ -20,14 +21,15 @@
         </a>
     </div>
     <span class="example-spacer"></span>
-
+    <span>{{user | titlecase}}</span>
     <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      
       <mat-icon>account_circle</mat-icon>
       <mat-icon >arrow_drop_down</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>My Profile</button>
-        <button mat-menu-item>Logout</button>
+        <button mat-menu-item (click)="logout()" >Logout</button>
       </mat-menu>
   </mat-toolbar>
+  <p>{{user}}</p>
   <!-- <app-patient-dashboard></app-patient-dashboard> -->

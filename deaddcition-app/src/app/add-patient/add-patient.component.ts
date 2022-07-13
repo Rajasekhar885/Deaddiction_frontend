@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PatientService } from '../services/patient.service';
 
 @Component({
@@ -9,19 +11,18 @@ import { PatientService } from '../services/patient.service';
 })
 export class AddPatientComponent implements OnInit {
 
-  constructor(private patientService:PatientService,private http:HttpClient) { }
+
+  @ViewChild('patientRegisterForm', { static: false })
+  patientRegisterForm!: NgForm;
+
+  constructor(private patientService:PatientService,private http:HttpClient,private router :Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(data:any){
-    this.http.post('http://localhost:8080/patient-api/patient',data)
-    .subscribe((result)=>{
-      console.warn("result",result);
-      
-    })
-    console.warn(data);
-
-    
+    this.patientService.registerPatient(data).subscribe((result)=>{})
+    this.patientRegisterForm.reset()
+    this.router.navigate(['patient-dashboard']);   
   }
 }

@@ -1,3 +1,5 @@
+// import { medication } from "./medication"
+
 export interface Patient {
     patientId:number,
     patientName:string,
@@ -8,9 +10,11 @@ export interface Patient {
     contactNumber:string,
     addictiontype:string,
     checkIn:Date,
-    checkOut:Date,
-    medication:string,
+    checkOut:Date ,
+    medication:string
+    // medication: Set<medication>,
+    
     sessionDescription:string
-    nextFollowup:string,
+    nextFollowup:Date,
     followupInfo:string
 }

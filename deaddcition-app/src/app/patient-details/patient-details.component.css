@@ -1,3 +1,11 @@
 .form-container{
     text-align: center;
 } 
+
+mat-form-field{
+    margin-right: 1rem;
+    width: 50%;
+}
+.submit{
+    margin-bottom: 2rem;
+}

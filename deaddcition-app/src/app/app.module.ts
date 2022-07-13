@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +11,13 @@ import { PatientDashboardComponent } from './patient-dashboard/patient-dashboard
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
-
+import { DatePipe } from '@angular/common';
+import { FollowupDashboardComponent } from './followup-dashboard/followup-dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakAngularModule } from 'keycloak-angular';
+import { initializeKeycloak } from './utility/app.init';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,9 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     HomeComponentComponent,
     PatientDashboardComponent,
     AddPatientComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    FollowupDashboardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +38,19 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     MaterialModule,
     HttpClientModule,
     AppRoutingModule,
+    KeycloakAngularModule
+
 
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+    {
+    provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

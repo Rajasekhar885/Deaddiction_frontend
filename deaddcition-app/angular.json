@@ -68,7 +68,8 @@
               "browserTarget": "deaddcition-app:build:production"
             },
             "development": {
-              "browserTarget": "deaddcition-app:build:development"
+              "browserTarget": "deaddcition-app:build:development",
+              "proxyConfig": "src/proxy.config.json"
             }
           },
           "defaultConfiguration": "development"

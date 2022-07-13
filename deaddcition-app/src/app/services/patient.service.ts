@@ -22,6 +22,14 @@ export class PatientService {
     return this._http.get<Patient[]>(this.baseurl+'s');
   }
 
+  registerPatient(data:any){
+    return this._http.post(this.baseurl,data)
+  }
+
+  getPatientsByFollowup(followupDate:string){
+    return this._http.get<Patient[]>(this.baseurl+'s/followup/'+followupDate)
+  }
+
   getPatientById(patientId:any){
     return this._http.get<Patient>(`${this.baseurl}/id/${patientId}`)
   }
@@ -33,5 +41,8 @@ export class PatientService {
       return new Observable(observer =>{
         observer.next(this.info)
     })
-}
+  }
+
+   
+
 }

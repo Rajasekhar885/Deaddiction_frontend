@@ -1,4 +1,6 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { DatePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -24,16 +26,19 @@ export class PatientDashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  today: object = new Date();
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
   } 
 
-  constructor(private patientService:PatientService, private router:Router) {  
+  constructor(private patientService:PatientService, private router:Router,private date:DatePipe,private http:HttpClient) {  
     
   }
 
   ngOnInit(): void {
     this.getAllPatients()
+    this.columns.push('Actions');
   }
 
   ngAfterViewInit() {
@@ -58,10 +63,16 @@ export class PatientDashboardComponent implements OnInit {
     }
   }
 
+  
+  
   patientInfo=(info:any,event:any)=>{
-      console.log(info);
-      // this.infoTransfer.emit(info)
 
+    info.checkIn=this.date.transform((new Date),'yyyy-MM-dd h:mm:ss')
+      console.log("one",info);
+      this.http.put('http://localhost:8080/patient-api/update/patient',info )
+    .subscribe((result)=>{
+      console.log("result",result);
+    })
       this.patientService.sendData(info)
     this.router.navigate(['patient-details', info.patientId]);   
   }
